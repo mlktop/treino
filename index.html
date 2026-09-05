@@ -14,7 +14,50 @@
             --text-light: #64748b;
             --accent: #ef4444;
             --success: #10b981;
+            --item-bg: #f1f5f9;
+            --item-border: #e2e8f0;
+            --item-title: #334155;
+            --completed-bg: #ecfdf5;
+            --completed-border: #a7f3d0;
+            --completed-text: #065f46;
         }
+
+        /* Tema Escuro (Dark) */
+        [data-theme="dark"] {
+            --primary: #60a5fa;
+            --primary-light: #3b82f6;
+            --bg: #0f172a;
+            --card-bg: #1e293b;
+            --text: #f8fafc;
+            --text-light: #94a3b8;
+            --accent: #f87171;
+            --success: #34d399;
+            --item-bg: #334155;
+            --item-border: #475569;
+            --item-title: #f1f5f9;
+            --completed-bg: #064e3b;
+            --completed-border: #059669;
+            --completed-text: #6ee7b7;
+        }
+
+        /* Tema Neon Cyber */
+        [data-theme="neon"] {
+            --primary: #f43f5e;
+            --primary-light: #fb7185;
+            --bg: #09090b;
+            --card-bg: #18181b;
+            --text: #fafafa;
+            --text-light: #a1a1aa;
+            --accent: #38bdf8;
+            --success: #22c55e;
+            --item-bg: #27272a;
+            --item-border: #3f3f46;
+            --item-title: #ffffff;
+            --completed-bg: #052e16;
+            --completed-border: #16a34a;
+            --completed-text: #86efac;
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             background-color: var(--bg);
@@ -22,33 +65,84 @@
             margin: 0;
             padding: 20px;
             line-height: 1.5;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
+
         .container { max-width: 850px; margin: 0 auto; }
-        h1 { text-align: center; color: var(--primary); margin-bottom: 25px; font-size: 1.8rem; }
-        .day-card { background: var(--card-bg); border-radius: 12px; padding: 20px; margin-bottom: 20px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); border-top: 4px solid var(--primary-light); transition: all 0.3s ease; }
-        h2 { color: var(--primary); border-bottom: 2px solid #e2e8f0; padding-bottom: 8px; font-size: 1.25rem; margin-top: 0; }
+        
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        h1 { color: var(--primary); margin: 0; font-size: 1.8rem; }
+
+        /* Seletor de Temas */
+        .theme-selector {
+            display: flex;
+            gap: 8px;
+            background: var(--card-bg);
+            padding: 6px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border: 1px solid var(--item-border);
+        }
+
+        .theme-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 6px 12px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border-radius: 6px;
+            color: var(--text);
+            transition: all 0.2s ease;
+        }
+
+        .theme-btn.active {
+            background: var(--primary);
+            color: #ffffff;
+        }
+
+        .day-card { 
+            background: var(--card-bg); 
+            border-radius: 12px; 
+            padding: 20px; 
+            margin-bottom: 20px; 
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); 
+            border-top: 4px solid var(--primary-light); 
+            transition: all 0.3s ease; 
+        }
+
+        h2 { color: var(--primary); border-bottom: 2px solid var(--item-border); padding-bottom: 8px; font-size: 1.25rem; margin-top: 0; }
         .exercise-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; margin-top: 15px; }
         
         /* Estilo do Card de Exercício com Check */
         .exercise-item { 
-            background: #f1f5f9; 
+            background: var(--item-bg); 
             padding: 12px; 
             border-radius: 8px; 
             text-align: center; 
-            border: 1px solid #e2e8f0; 
+            border: 1px solid var(--item-border); 
             position: relative;
             transition: all 0.2s ease;
+            cursor: pointer;
         }
         
         /* Estado Concluído */
         .exercise-item.completed {
-            background: #ecfdf5;
-            border-color: #a7f3d0;
-            opacity: 0.75;
+            background: var(--completed-bg);
+            border-color: var(--completed-border);
+            opacity: 0.8;
         }
         .exercise-item.completed h4 {
             text-decoration: line-through;
-            color: #065f46;
+            color: var(--completed-text);
         }
 
         /* Checkbox Customizado Bonito */
@@ -67,8 +161,8 @@
         .checkmark {
             width: 24px;
             height: 24px;
-            background-color: #ffffff;
-            border: 2px solid #cbd5e1;
+            background-color: var(--card-bg);
+            border: 2px solid var(--item-border);
             border-radius: 6px;
             display: inline-block;
             transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
@@ -97,23 +191,30 @@
             transform: rotate(45deg);
         }
 
-        .exercise-item h4 { margin: 0 0 4px 0; font-size: 0.95rem; color: #334155; padding-right: 25px; }
+        .exercise-item h4 { margin: 0 0 4px 0; font-size: 0.95rem; color: var(--item-title); padding-right: 25px; }
         .exercise-details { font-size: 0.85rem; color: var(--text-light); margin-bottom: 8px; font-weight: 600; }
         
         /* Estilo para múltiplos vídeos/GIFs lado a lado */
         .media-container { display: flex; gap: 8px; overflow-x: auto; margin-top: 5px; padding-bottom: 5px; }
         .media-container::-webkit-scrollbar { height: 6px; }
-        .media-container::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+        .media-container::-webkit-scrollbar-thumb { background: var(--item-border); border-radius: 3px; }
         
-        .exercise-media { width: 140px; height: 140px; object-fit: contain; border-radius: 6px; background: #e2e8f0; flex-shrink: 0; }
+        .exercise-media { width: 140px; height: 140px; object-fit: contain; border-radius: 6px; background: var(--card-bg); flex-shrink: 0; }
         
-        .cardio-info { margin-top: 15px; font-weight: 600; color: var(--accent); font-size: 0.95rem; background: #fef2f2; padding: 10px; border-radius: 6px; border-left: 4px solid var(--accent); }
+        .cardio-info { margin-top: 15px; font-weight: 600; color: var(--accent); font-size: 0.95rem; background: var(--card-bg); padding: 10px; border-radius: 6px; border-left: 4px solid var(--accent); border: 1px solid var(--item-border); }
     </style>
 </head>
-<body>
+<body data-theme="light">
 
 <div class="container">
-    <h1>Plano Recomposição Corporal - Meta 75kg (Dezembro)</h1>
+    <div class="header-top">
+        <h1>Plano Recomposição Corporal</h1>
+        <div class="theme-selector">
+            <button class="theme-btn active" onclick="setTheme('light')">☀️ Claro</button>
+            <button class="theme-btn" onclick="setTheme('dark')">🌙 Dark</button>
+            <button class="theme-btn" onclick="setTheme('neon')">⚡ Neon</button>
+        </div>
+    </div>
 
     <div class="day-card">
         <h2>Segunda-feira: Costas e Bíceps (Foco Força & Densidade)</h2>
@@ -247,7 +348,7 @@
 
     <div class="day-card">
         <h2>Quarta-feira</h2>
-        <p style="color: #64748b; font-style: italic; text-align: center; margin: 10px 0;">Descanso estratégico para recuperação muscular, ganho de força e rotina CLT.</p>
+        <p style="color: var(--text-light); font-style: italic; text-align: center; margin: 10px 0;">Descanso estratégico para recuperação muscular, ganho de força e rotina CLT.</p>
     </div>
 
     <div class="day-card">
@@ -379,7 +480,6 @@
                 <div class="exercise-details">12 a 15 rep | Foco rigidez</div>
                 <div class="media-container">
                     <img class="exercise-media" src="https://gymvisual.com/img/p/6/3/5/9/6359.gif" alt="abdominal maquina">
-                    
                 </div>
             </div>
         </div>
@@ -389,12 +489,33 @@
 </div>
 
 <script>
+    function setTheme(themeName) {
+        document.body.setAttribute('data-theme', themeName);
+        localStorage.setItem('preferred_theme', themeName);
+        
+        // Atualiza estilo dos botões do seletor
+        const buttons = document.querySelectorAll('.theme-btn');
+        buttons.forEach(btn => {
+            btn.classList.remove('active');
+            if(btn.textContent.toLowerCase().includes(themeName)) {
+                btn.classList.add('active');
+            }
+        });
+    }
+
+    // Carrega o tema salvo anteriormente se houver
+    window.addEventListener('DOMContentLoaded', () => {
+        const savedTheme = localStorage.getItem('preferred_theme');
+        if (savedTheme) {
+            setTheme(savedTheme);
+        }
+    });
+
     function handleCheckboxClick(event, checkbox) {
-        // Intercepta a mudança para pedir confirmação apenas ao marcar
         if (checkbox.checked) {
             const confirmar = confirm("Deseja realmente marcar este exercício como concluído?");
             if (!confirmar) {
-                event.preventDefault(); // Cancela a marcação se o usuário desistir
+                event.preventDefault();
                 checkbox.checked = false;
                 return;
             }
@@ -404,13 +525,10 @@
 
     function handleCardClick(item) {
         const checkbox = item.querySelector('input[type="checkbox"]');
-        
-        // Se já está marcado, desmarca direto sem confirmação incômoda
         if (checkbox.checked) {
             checkbox.checked = false;
             updateCardState(checkbox);
         } else {
-            // Se não está marcado, pede confirmação ao clicar no card inteiro
             const confirmar = confirm("Deseja realmente marcar este exercício como concluído?");
             if (confirmar) {
                 checkbox.checked = true;
