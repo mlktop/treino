@@ -74,7 +74,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             flex-wrap: wrap;
             gap: 15px;
         }
@@ -107,6 +107,54 @@
         .theme-btn.active {
             background: var(--primary);
             color: #ffffff;
+        }
+
+        /* Sistema de Abas */
+        .tabs-nav {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 20px;
+            overflow-x: auto;
+            padding-bottom: 5px;
+        }
+
+        .tab-btn {
+            background: var(--card-bg);
+            border: 1px solid var(--item-border);
+            color: var(--text);
+            padding: 10px 16px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .tab-btn:hover {
+            border-color: var(--primary-light);
+        }
+
+        .tab-btn.active {
+            background: var(--primary);
+            color: #ffffff;
+            border-color: var(--primary);
+        }
+
+        /* Conteúdo das Abas */
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(4px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .day-card { 
@@ -216,277 +264,298 @@
         </div>
     </div>
 
-    <div class="day-card">
-        <h2>Segunda-feira: Costas e Bíceps (Foco Força & Densidade)</h2>
-        <div class="exercise-grid">
-            <div class="exercise-item" onclick="handleCardClick(this)">
-                <label class="check-container" onclick="event.stopPropagation()">
-                    <input type="checkbox" onclick="handleCheckboxClick(event, this)">
-                    <span class="checkmark"></span>
-                </label>
-                <h4>4x puxada aberta</h4>
-                <div class="exercise-details">8 a 10 rep | Carga alta</div>
-                <div class="media-container">
-                    <video class="exercise-media" src="https://musclewiki.com/api-next/videos/male-machine-pulldown-front.mp4" autoplay loop muted playsinline></video>
-                    <video class="exercise-media" src="https://musclewiki.com/api-next/videos/male-machine-pulldown-side.mp4" autoplay loop muted playsinline></video>
-                </div>
-            </div>
-            <div class="exercise-item" onclick="handleCardClick(this)">
-                <label class="check-container" onclick="event.stopPropagation()">
-                    <input type="checkbox" onclick="handleCheckboxClick(event, this)">
-                    <span class="checkmark"></span>
-                </label>
-                <h4>4x remada baixa fechada</h4>
-                <div class="exercise-details">8 a 10 rep | Carga alta</div>
-                <div class="media-container">
-                    <video class="exercise-media" src="https://musclewiki.com/api-next/videos/male-machine-seated-cable-row-front.mp4" autoplay loop muted playsinline></video>
-                    <video class="exercise-media" src="https://musclewiki.com/api-next/videos/male-machine-seated-cable-row-side.mp4" autoplay loop muted playsinline></video>
-                </div>
-            </div>
-            <div class="exercise-item" onclick="handleCardClick(this)">
-                <label class="check-container" onclick="event.stopPropagation()">
-                    <input type="checkbox" onclick="handleCheckboxClick(event, this)">
-                    <span class="checkmark"></span>
-                </label>
-                <h4>4x remada aberta maquina</h4>
-                <div class="exercise-details">8 a 10 rep | Carga alta</div>
-                <div class="media-container">
-                    <video class="exercise-media" src="https://musclewiki.com/api-next/videos/male-Machine-machine-plate-loaded-row-side.mp4" autoplay loop muted playsinline></video>
-                    <img class="exercise-media" src="https://treinomestre.com.br/wp-content/uploads/2024/03/remada-articulada-na-maquina-pequena-pronada.gif" alt="Remada articulada">
-                </div>
-            </div>
-            <div class="exercise-item" onclick="handleCardClick(this)">
-                <label class="check-container" onclick="event.stopPropagation()">
-                    <input type="checkbox" onclick="handleCheckboxClick(event, this)">
-                    <span class="checkmark"></span>
-                </label>
-                <h4>3x crucifixo inverso</h4>
-                <div class="exercise-details">10 a 12 rep | Carga firme</div>
-                <div class="media-container">
-                    <video class="exercise-media" src="https://musclewiki.com/api-next/videos/male-Machine-machine-reverse-fly-front.mp4" autoplay loop muted playsinline></video>
-                    <img class="exercise-media" src="https://grandeatleta.com.br/wp-content/uploads/2023/10/Crucifixo-inverso-na-maquina-como-fazer-musculos.gif" alt="Crucifixo inverso">            
-                </div>
-            </div>
-            <div class="exercise-item" onclick="handleCardClick(this)">
-                <label class="check-container" onclick="event.stopPropagation()">
-                    <input type="checkbox" onclick="handleCheckboxClick(event, this)">
-                    <span class="checkmark"></span>
-                </label>
-                <h4>4x martelo </h4>
-                <div class="exercise-details">10 rep | Carga firme</div>
-                <div class="media-container">                    
-                    <video class="exercise-media" src="https://musclewiki.com/api-next/videos/male-Dumbbells-dumbbell-hammer-curl-front.mp4" autoplay loop muted playsinline></video>
-                    <video class="exercise-media" src="https://musclewiki.com/api-next/videos/male-Dumbbells-dumbbell-hammer-curl-side.mp4" autoplay loop muted playsinline></video>
-                    <img class="exercise-media" src="https://www.hipertrofia.org/blog/wp-content/uploads/2023/04/dumbbell-hammer-curl-v-2.gif" alt="martelo">
-                    
-                </div>
-            </div>
-            <div class="exercise-item" onclick="handleCardClick(this)">
-                <label class="check-container" onclick="event.stopPropagation()">
-                    <input type="checkbox" onclick="handleCheckboxClick(event, this)">
-                    <span class="checkmark"></span>
-                </label>
-                <h4>3x rosca scott</h4>
-                <div class="exercise-details">10 rep | Carga firme</div>
-                <div class="media-container">
-                    <img class="exercise-media" src="https://www.hipertrofia.org/blog/wp-content/uploads/2019/04/rosca-scott.gif" alt="rosca scott">
-                </div>
-            </div>
-        </div>
-        <div class="cardio-info">🔥 25 min de Cardio Pós-Treino (Para preservar massa e secar)</div>
+    <!-- Navegação por Abas -->
+    <div class="tabs-nav">
+        <button class="tab-btn active" onclick="openTab(event, 'segunda')">Segunda-feira</button>
+        <button class="tab-btn" onclick="openTab(event, 'terca')">Terça-feira</button>
+        <button class="tab-btn" onclick="openTab(event, 'quarta')">Quarta-feira</button>
+        <button class="tab-btn" onclick="openTab(event, 'quinta')">Quinta-feira</button>
+        <button class="tab-btn" onclick="openTab(event, 'sexta')">Sexta-feira</button>
     </div>
 
-    <div class="day-card">
-        <h2>Terça-feira: Inferiores (Foco Quadríceps & Construção de Massa)</h2>
-        <div class="exercise-grid">
-            <div class="exercise-item" onclick="handleCardClick(this)">
-                <label class="check-container" onclick="event.stopPropagation()">
-                    <input type="checkbox" onclick="handleCheckboxClick(event, this)">
-                    <span class="checkmark"></span>
-                </label>
-                <h4>4x agachamento hack 45</h4>
-                <div class="exercise-details">8 a 10 rep | Força máxima</div>
-                <div class="media-container">
-                    <video class="exercise-media" src="https://musclewiki.com/api-next/videos/male-Machine-machine-hack-squat-side.mp4" autoplay loop muted playsinline></video>
-                    <img class="exercise-media" src="https://www.mundoboaforma.com.br/wp-content/uploads/2020/11/agachamento-no-rack.gif" alt="agachamento hack">
+    <!-- Conteúdo: Segunda-feira -->
+    <div id="segunda" class="tab-content active">
+        <div class="day-card">
+            <h2>Segunda-feira: Costas e Bíceps (Foco Força & Densidade)</h2>
+            <div class="exercise-grid">
+                <div class="exercise-item" onclick="handleCardClick(this)">
+                    <label class="check-container" onclick="event.stopPropagation()">
+                        <input type="checkbox" onclick="handleCheckboxClick(event, this)">
+                        <span class="checkmark"></span>
+                    </label>
+                    <h4>4x puxada aberta</h4>
+                    <div class="exercise-details">8 a 10 rep | Carga alta</div>
+                    <div class="media-container">
+                        <video class="exercise-media" src="https://musclewiki.com/api-next/videos/male-machine-pulldown-front.mp4" autoplay loop muted playsinline></video>
+                        <video class="exercise-media" src="https://musclewiki.com/api-next/videos/male-machine-pulldown-side.mp4" autoplay loop muted playsinline></video>
+                    </div>
+                </div>
+                <div class="exercise-item" onclick="handleCardClick(this)">
+                    <label class="check-container" onclick="event.stopPropagation()">
+                        <input type="checkbox" onclick="handleCheckboxClick(event, this)">
+                        <span class="checkmark"></span>
+                    </label>
+                    <h4>4x remada baixa fechada</h4>
+                    <div class="exercise-details">8 a 10 rep | Carga alta</div>
+                    <div class="media-container">
+                        <video class="exercise-media" src="https://musclewiki.com/api-next/videos/male-machine-seated-cable-row-front.mp4" autoplay loop muted playsinline></video>
+                        <video class="exercise-media" src="https://musclewiki.com/api-next/videos/male-machine-seated-cable-row-side.mp4" autoplay loop muted playsinline></video>
+                    </div>
+                </div>
+                <div class="exercise-item" onclick="handleCardClick(this)">
+                    <label class="check-container" onclick="event.stopPropagation()">
+                        <input type="checkbox" onclick="handleCheckboxClick(event, this)">
+                        <span class="checkmark"></span>
+                    </label>
+                    <h4>4x remada aberta maquina</h4>
+                    <div class="exercise-details">8 a 10 rep | Carga alta</div>
+                    <div class="media-container">
+                        <video class="exercise-media" src="https://musclewiki.com/api-next/videos/male-Machine-machine-plate-loaded-row-side.mp4" autoplay loop muted playsinline></video>
+                        <img class="exercise-media" src="https://treinomestre.com.br/wp-content/uploads/2024/03/remada-articulada-na-maquina-pequena-pronada.gif" alt="Remada articulada">
+                    </div>
+                </div>
+                <div class="exercise-item" onclick="handleCardClick(this)">
+                    <label class="check-container" onclick="event.stopPropagation()">
+                        <input type="checkbox" onclick="handleCheckboxClick(event, this)">
+                        <span class="checkmark"></span>
+                    </label>
+                    <h4>3x crucifixo inverso</h4>
+                    <div class="exercise-details">10 a 12 rep | Carga firme</div>
+                    <div class="media-container">
+                        <video class="exercise-media" src="https://musclewiki.com/api-next/videos/male-Machine-machine-reverse-fly-front.mp4" autoplay loop muted playsinline></video>
+                        <img class="exercise-media" src="https://grandeatleta.com.br/wp-content/uploads/2023/10/Crucifixo-inverso-na-maquina-como-fazer-musculos.gif" alt="Crucifixo inverso">            
+                    </div>
+                </div>
+                <div class="exercise-item" onclick="handleCardClick(this)">
+                    <label class="check-container" onclick="event.stopPropagation()">
+                        <input type="checkbox" onclick="handleCheckboxClick(event, this)">
+                        <span class="checkmark"></span>
+                    </label>
+                    <h4>4x rosca 45</h4>
+                    <div class="exercise-details">10 rep | Carga firme</div>
+                    <div class="media-container">
+                        <video class="exercise-media" src="https://musclewiki.com/api-next/videos/male-Dumbbell-incline-bicep-curl-front.mp4" autoplay loop muted playsinline></video>
+                    </div>
+                </div>
+                <div class="exercise-item" onclick="handleCardClick(this)">
+                    <label class="check-container" onclick="event.stopPropagation()">
+                        <input type="checkbox" onclick="handleCheckboxClick(event, this)">
+                        <span class="checkmark"></span>
+                    </label>
+                    <h4>3x rosca scott</h4>
+                    <div class="exercise-details">10 rep | Carga firme</div>
+                    <div class="media-container">
+                        <img class="exercise-media" src="https://www.hipertrofia.org/blog/wp-content/uploads/2019/04/rosca-scott.gif" alt="rosca scott">
+                    </div>
                 </div>
             </div>
-            <div class="exercise-item" onclick="handleCardClick(this)">
-                <label class="check-container" onclick="event.stopPropagation()">
-                    <input type="checkbox" onclick="handleCheckboxClick(event, this)">
-                    <span class="checkmark"></span>
-                </label>
-                <h4>4x cadeira extensora</h4>
-                <div class="exercise-details">10 a 12 rep | Carga firme</div>
-                <div class="media-container">
-                    <video class="exercise-media" src="https://musclewiki.com/api-next/videos/male-machine-leg-extension-front.mp4" autoplay loop muted playsinline></video>
-                    <img class="exercise-media" src="https://www.mundoboaforma.com.br/wp-content/uploads/2021/04/pernas-extensao-de-pernas-na-maquina.gif" alt="cadeira extensora">
-                </div>
-            </div>
-            <div class="exercise-item" onclick="handleCardClick(this)">
-                <label class="check-container" onclick="event.stopPropagation()">
-                    <input type="checkbox" onclick="handleCheckboxClick(event, this)">
-                    <span class="checkmark"></span>
-                </label>
-                <h4>4x leg press horizontal</h4>
-                <div class="exercise-details">10 rep | Carga alta</div>
-                <div class="media-container">
-                    <video class="exercise-media" src="https://musclewiki.com/api-next/videos/male-Machine-machine-horizontal-sissy-leg-press-side.mp4" autoplay loop muted playsinline></video>
-                </div>
-            </div>
-            <div class="exercise-item" onclick="handleCardClick(this)">
-                <label class="check-container" onclick="event.stopPropagation()">
-                    <input type="checkbox" onclick="handleCheckboxClick(event, this)">
-                    <span class="checkmark"></span>
-                </label>
-                <h4>4x panturrilha maquina</h4>
-                <div class="exercise-details">12 a 15 rep | Carga firme</div>
-                <div class="media-container">
-                    <video class="exercise-media" src="https://musclewiki.com/api-next/videos/male-machine-standing-calf-raises-front.mp4" autoplay loop muted playsinline></video>
-                </div>
-            </div>
+            <div class="cardio-info">🔥 25 min de Cardio Pós-Treino (Para preservar massa e secar)</div>
         </div>
-        <div class="cardio-info">🔥 25 min de Cardio Pós-Treino (Para preservar massa e secar)</div>
     </div>
 
-    <div class="day-card">
-        <h2>Quarta-feira</h2>
-        <p style="color: var(--text-light); font-style: italic; text-align: center; margin: 10px 0;">Descanso estratégico para recuperação muscular, ganho de força e rotina CLT.</p>
+    <!-- Conteúdo: Terça-feira -->
+    <div id="terca" class="tab-content">
+        <div class="day-card">
+            <h2>Terça-feira: Inferiores (Foco Quadríceps & Construção de Massa)</h2>
+            <div class="exercise-grid">
+                <div class="exercise-item" onclick="handleCardClick(this)">
+                    <label class="check-container" onclick="event.stopPropagation()">
+                        <input type="checkbox" onclick="handleCheckboxClick(event, this)">
+                        <span class="checkmark"></span>
+                    </label>
+                    <h4>4x agachamento hack 45</h4>
+                    <div class="exercise-details">8 a 10 rep | Força máxima</div>
+                    <div class="media-container">
+                        <video class="exercise-media" src="https://musclewiki.com/api-next/videos/male-Machine-machine-hack-squat-side.mp4" autoplay loop muted playsinline></video>
+                        <img class="exercise-media" src="https://www.mundoboaforma.com.br/wp-content/uploads/2020/11/agachamento-no-rack.gif" alt="agachamento hack">
+                    </div>
+                </div>
+                <div class="exercise-item" onclick="handleCardClick(this)">
+                    <label class="check-container" onclick="event.stopPropagation()">
+                        <input type="checkbox" onclick="handleCheckboxClick(event, this)">
+                        <span class="checkmark"></span>
+                    </label>
+                    <h4>4x cadeira extensora</h4>
+                    <div class="exercise-details">10 a 12 rep | Carga firme</div>
+                    <div class="media-container">
+                        <video class="exercise-media" src="https://musclewiki.com/api-next/videos/male-machine-leg-extension-front.mp4" autoplay loop muted playsinline></video>
+                        <img class="exercise-media" src="https://www.mundoboaforma.com.br/wp-content/uploads/2021/04/pernas-extensao-de-pernas-na-maquina.gif" alt="cadeira extensora">
+                    </div>
+                </div>
+                <div class="exercise-item" onclick="handleCardClick(this)">
+                    <label class="check-container" onclick="event.stopPropagation()">
+                        <input type="checkbox" onclick="handleCheckboxClick(event, this)">
+                        <span class="checkmark"></span>
+                    </label>
+                    <h4>4x leg press horizontal</h4>
+                    <div class="exercise-details">10 rep | Carga alta</div>
+                    <div class="media-container">
+                        <video class="exercise-media" src="https://musclewiki.com/api-next/videos/male-Machine-machine-horizontal-sissy-leg-press-side.mp4" autoplay loop muted playsinline></video>
+                    </div>
+                </div>
+                <div class="exercise-item" onclick="handleCardClick(this)">
+                    <label class="check-container" onclick="event.stopPropagation()">
+                        <input type="checkbox" onclick="handleCheckboxClick(event, this)">
+                        <span class="checkmark"></span>
+                    </label>
+                    <h4>4x panturrilha maquina</h4>
+                    <div class="exercise-details">12 a 15 rep | Carga firme</div>
+                    <div class="media-container">
+                        <video class="exercise-media" src="https://musclewiki.com/api-next/videos/male-machine-standing-calf-raises-front.mp4" autoplay loop muted playsinline></video>
+                    </div>
+                </div>
+            </div>
+            <div class="cardio-info">🔥 25 min de Cardio Pós-Treino (Para preservar massa e secar)</div>
+        </div>
     </div>
 
-    <div class="day-card">
-        <h2>Quinta-feira: Peito, Ombro e Tríceps (Hipertrofia Superior)</h2>
-        <div class="exercise-grid">
-            <div class="exercise-item" onclick="handleCardClick(this)">
-                <label class="check-container" onclick="event.stopPropagation()">
-                    <input type="checkbox" onclick="handleCheckboxClick(event, this)">
-                    <span class="checkmark"></span>
-                </label>
-                <h4>4x supino inclinado articulado</h4>
-                <div class="exercise-details">8 a 10 rep | Carga alta</div>
-                <div class="media-container">
-                    <img class="exercise-media" src="https://www.hipertrofia.org/blog/wp-content/uploads/2024/07/lever-incline-chest-press.gif" alt="supino inclinado">
-                </div>
-            </div>
-            <div class="exercise-item" onclick="handleCardClick(this)">
-                <label class="check-container" onclick="event.stopPropagation()">
-                    <input type="checkbox" onclick="handleCheckboxClick(event, this)">
-                    <span class="checkmark"></span>
-                </label>
-                <h4>4x supino vertical</h4>
-                <div class="exercise-details">8 a 10 rep | Carga alta</div>
-                <div class="media-container">
-                    <video class="exercise-media" src="https://musclewiki.com/api-next/videos/male-Machine-machine-chest-press-side.mp4" autoplay loop muted playsinline></video>
-                </div>
-            </div>
-            <div class="exercise-item" onclick="handleCardClick(this)">
-                <label class="check-container" onclick="event.stopPropagation()">
-                    <input type="checkbox" onclick="handleCheckboxClick(event, this)">
-                    <span class="checkmark"></span>
-                </label>
-                <h4>4x crucifixo</h4>
-                <div class="exercise-details">10 a 12 rep | Carga firme</div>
-                <div class="media-container">
-                    <img class="exercise-media" src="https://grandeatleta.com.br/wp-content/uploads/2023/10/Crucifixo-inverso-na-maquina-como-fazer-musculos.gif" alt="crucifixo">
-                </div>
-            </div>
-            <div class="exercise-item" onclick="handleCardClick(this)">
-                <label class="check-container" onclick="event.stopPropagation()">
-                    <input type="checkbox" onclick="handleCheckboxClick(event, this)">
-                    <span class="checkmark"></span>
-                </label>
-                <h4>4x desenvolvimento articulado</h4>
-                <div class="exercise-details">8 a 10 rep | Carga alta</div>
-                <div class="media-container">
-                    <img class="exercise-media" src="https://media1.tenor.com/m/drQHW1DWPo0AAAAC/desenvolvimento-maquina.gif" alt="desenvolvimento articulado">
-                </div>
-            </div>
-            <div class="exercise-item" onclick="handleCardClick(this)">
-                <label class="check-container" onclick="event.stopPropagation()">
-                    <input type="checkbox" onclick="handleCheckboxClick(event, this)">
-                    <span class="checkmark"></span>
-                </label>
-                <h4>3x elevação lateral</h4>
-                <div class="exercise-details">12 rep | Controle de movimento</div>
-                <div class="media-container">
-                    <video class="exercise-media" src="https://musclewiki.com/api-next/videos/male-Dumbbells-dumbbell-lateral-raise-front.mp4" autoplay loop muted playsinline></video>
-                </div>
-            </div>
-            <div class="exercise-item" onclick="handleCardClick(this)">
-                <label class="check-container" onclick="event.stopPropagation()">
-                    <input type="checkbox" onclick="handleCheckboxClick(event, this)">
-                    <span class="checkmark"></span>
-                </label>
-                <h4>4x triceps cross pronado</h4>
-                <div class="exercise-details">10 rep | Carga firme</div>
-                <div class="media-container">               
-                    <img class="exercise-media" src="https://gymvisual.com/img/p/2/7/6/2/8/27628.gif" alt="triceps cross pronado">               
-                </div>
-            </div>
-            <div class="exercise-item" onclick="handleCardClick(this)">
-                <label class="check-container" onclick="event.stopPropagation()">
-                    <input type="checkbox" onclick="handleCheckboxClick(event, this)">
-                    <span class="checkmark"></span>
-                </label>
-                <h4>3x triceps corda</h4>
-                <div class="exercise-details">10 a 12 rep | Carga firme</div>
-                <div class="media-container">
-                    <video class="exercise-media" src="https://musclewiki.com/api-next/videos/male-Cables-cable-push-down-side.mp4" autoplay loop muted playsinline></video>
-                </div>
-            </div>
+    <!-- Conteúdo: Quarta-feira -->
+    <div id="quarta" class="tab-content">
+        <div class="day-card">
+            <h2>Quarta-feira</h2>
+            <p style="color: var(--text-light); font-style: italic; text-align: center; margin: 10px 0;">Descanso estratégico para recuperação muscular, ganho de força e rotina CLT.</p>
         </div>
-        <div class="cardio-info">🔥 25 min de Cardio Pós-Treino (Para preservar massa e secar)</div>
     </div>
 
-    <div class="day-card">
-        <h2>Sexta-feira: Inferiores (Posterior/Glúteos) & Core</h2>
-        <div class="exercise-grid">
-            <div class="exercise-item" onclick="handleCardClick(this)">
-                <label class="check-container" onclick="event.stopPropagation()">
-                    <input type="checkbox" onclick="handleCheckboxClick(event, this)">
-                    <span class="checkmark"></span>
-                </label>
-                <h4>4x cadeira flexora</h4>
-                <div class="exercise-details">10 rep | Carga firme</div>
-                <div class="media-container">
-                    <video class="exercise-media" src="https://musclewiki.com/api-next/videos/male-Machine-seated-leg-curl-front.mp4" autoplay loop muted playsinline></video>
+    <!-- Conteúdo: Quinta-feira -->
+    <div id="quinta" class="tab-content">
+        <div class="day-card">
+            <h2>Quinta-feira: Peito, Ombro e Tríceps (Hipertrofia Superior)</h2>
+            <div class="exercise-grid">
+                <div class="exercise-item" onclick="handleCardClick(this)">
+                    <label class="check-container" onclick="event.stopPropagation()">
+                        <input type="checkbox" onclick="handleCheckboxClick(event, this)">
+                        <span class="checkmark"></span>
+                    </label>
+                    <h4>4x supino inclinado articulado</h4>
+                    <div class="exercise-details">8 a 10 rep | Carga alta</div>
+                    <div class="media-container">
+                        <img class="exercise-media" src="https://www.hipertrofia.org/blog/wp-content/uploads/2024/07/lever-incline-chest-press.gif" alt="supino inclinado">
+                    </div>
+                </div>
+                <div class="exercise-item" onclick="handleCardClick(this)">
+                    <label class="check-container" onclick="event.stopPropagation()">
+                        <input type="checkbox" onclick="handleCheckboxClick(event, this)">
+                        <span class="checkmark"></span>
+                    </label>
+                    <h4>4x supino vertical</h4>
+                    <div class="exercise-details">8 a 10 rep | Carga alta</div>
+                    <div class="media-container">
+                        <video class="exercise-media" src="https://musclewiki.com/api-next/videos/male-Machine-machine-chest-press-side.mp4" autoplay loop muted playsinline></video>
+                    </div>
+                </div>
+                <div class="exercise-item" onclick="handleCardClick(this)">
+                    <label class="check-container" onclick="event.stopPropagation()">
+                        <input type="checkbox" onclick="handleCheckboxClick(event, this)">
+                        <span class="checkmark"></span>
+                    </label>
+                    <h4>4x crucifixo</h4>
+                    <div class="exercise-details">10 a 12 rep | Carga firme</div>
+                    <div class="media-container">
+                        <img class="exercise-media" src="https://grandeatleta.com.br/wp-content/uploads/2023/10/Crucifixo-inverso-na-maquina-como-fazer-musculos.gif" alt="crucifixo">
+                    </div>
+                </div>
+                <div class="exercise-item" onclick="handleCardClick(this)">
+                    <label class="check-container" onclick="event.stopPropagation()">
+                        <input type="checkbox" onclick="handleCheckboxClick(event, this)">
+                        <span class="checkmark"></span>
+                    </label>
+                    <h4>4x desenvolvimento articulado</h4>
+                    <div class="exercise-details">8 a 10 rep | Carga alta</div>
+                    <div class="media-container">
+                        <img class="exercise-media" src="https://media1.tenor.com/m/drQHW1DWPo0AAAAC/desenvolvimento-maquina.gif" alt="desenvolvimento articulado">
+                    </div>
+                </div>
+                <div class="exercise-item" onclick="handleCardClick(this)">
+                    <label class="check-container" onclick="event.stopPropagation()">
+                        <input type="checkbox" onclick="handleCheckboxClick(event, this)">
+                        <span class="checkmark"></span>
+                    </label>
+                    <h4>3x elevação lateral</h4>
+                    <div class="exercise-details">12 rep | Controle de movimento</div>
+                    <div class="media-container">
+                        <video class="exercise-media" src="https://musclewiki.com/api-next/videos/male-Dumbbells-dumbbell-lateral-raise-front.mp4" autoplay loop muted playsinline></video>
+                    </div>
+                </div>
+                <div class="exercise-item" onclick="handleCardClick(this)">
+                    <label class="check-container" onclick="event.stopPropagation()">
+                        <input type="checkbox" onclick="handleCheckboxClick(event, this)">
+                        <span class="checkmark"></span>
+                    </label>
+                    <h4>4x triceps cross pronado</h4>
+                    <div class="exercise-details">10 rep | Carga firme</div>
+                    <div class="media-container">               
+                        <img class="exercise-media" src="https://gymvisual.com/img/p/2/7/6/2/8/27628.gif" alt="triceps cross pronado">               
+                    </div>
+                </div>
+                <div class="exercise-item" onclick="handleCardClick(this)">
+                    <label class="check-container" onclick="event.stopPropagation()">
+                        <input type="checkbox" onclick="handleCheckboxClick(event, this)">
+                        <span class="checkmark"></span>
+                    </label>
+                    <h4>3x triceps corda</h4>
+                    <div class="exercise-details">10 a 12 rep | Carga firme</div>
+                    <div class="media-container">
+                        <video class="exercise-media" src="https://musclewiki.com/api-next/videos/male-Cables-cable-push-down-side.mp4" autoplay loop muted playsinline></video>
+                    </div>
                 </div>
             </div>
-            <div class="exercise-item" onclick="handleCardClick(this)">
-                <label class="check-container" onclick="event.stopPropagation()">
-                    <input type="checkbox" onclick="handleCheckboxClick(event, this)">
-                    <span class="checkmark"></span>
-                </label>
-                <h4>3x cadeira abdutora</h4>
-                <div class="exercise-details">12 rep | Carga firme</div>
-                <div class="media-container">
-                    <video class="exercise-media" src="https://musclewiki.com/api-next/videos/male-Machine-machine-hip-abduction-front.mp4" autoplay loop muted playsinline></video>
-                </div>
-            </div>
-            <div class="exercise-item" onclick="handleCardClick(this)">
-                <label class="check-container" onclick="event.stopPropagation()">
-                    <input type="checkbox" onclick="handleCheckboxClick(event, this)">
-                    <span class="checkmark"></span>
-                </label>
-                <h4>3x cadeira adutora</h4>
-                <div class="exercise-details">12 rep | Carga firme</div>
-                <div class="media-container">
-                    <video class="exercise-media" src="https://musclewiki.com/api-next/videos/male-Machine-machine-hip-adduction-front.mp4" autoplay loop muted playsinline></video>
-                </div>
-            </div>
-            <div class="exercise-item" onclick="handleCardClick(this)">
-                <label class="check-container" onclick="event.stopPropagation()">
-                    <input type="checkbox" onclick="handleCheckboxClick(event, this)">
-                    <span class="checkmark"></span>
-                </label>
-                <h4>3x abdominal maquina</h4>
-                <div class="exercise-details">12 a 15 rep | Foco rigidez</div>
-                <div class="media-container">
-                    <img class="exercise-media" src="https://gymvisual.com/img/p/6/3/5/9/6359.gif" alt="abdominal maquina">
-                </div>
-            </div>
+            <div class="cardio-info">🔥 25 min de Cardio Pós-Treino (Para preservar massa e secar)</div>
         </div>
-        <div class="cardio-info">🔥 25 min de Cardio Pós-Treino (Para preservar massa e secar)</div>
+    </div>
+
+    <!-- Conteúdo: Sexta-feira -->
+    <div id="sexta" class="tab-content">
+        <div class="day-card">
+            <h2>Sexta-feira: Inferiores (Posterior/Glúteos) & Core</h2>
+            <div class="exercise-grid">
+                <div class="exercise-item" onclick="handleCardClick(this)">
+                    <label class="check-container" onclick="event.stopPropagation()">
+                        <input type="checkbox" onclick="handleCheckboxClick(event, this)">
+                        <span class="checkmark"></span>
+                    </label>
+                    <h4>4x cadeira flexora</h4>
+                    <div class="exercise-details">10 rep | Carga firme</div>
+                    <div class="media-container">
+                        <video class="exercise-media" src="https://musclewiki.com/api-next/videos/male-Machine-seated-leg-curl-front.mp4" autoplay loop muted playsinline></video>
+                    </div>
+                </div>
+                <div class="exercise-item" onclick="handleCardClick(this)">
+                    <label class="check-container" onclick="event.stopPropagation()">
+                        <input type="checkbox" onclick="handleCheckboxClick(event, this)">
+                        <span class="checkmark"></span>
+                    </label>
+                    <h4>3x cadeira abdutora</h4>
+                    <div class="exercise-details">12 rep | Carga firme</div>
+                    <div class="media-container">
+                        <video class="exercise-media" src="https://musclewiki.com/api-next/videos/male-Machine-machine-hip-abduction-front.mp4" autoplay loop muted playsinline></video>
+                    </div>
+                </div>
+                <div class="exercise-item" onclick="handleCardClick(this)">
+                    <label class="check-container" onclick="event.stopPropagation()">
+                        <input type="checkbox" onclick="handleCheckboxClick(event, this)">
+                        <span class="checkmark"></span>
+                    </label>
+                    <h4>3x cadeira adutora</h4>
+                    <div class="exercise-details">12 rep | Carga firme</div>
+                    <div class="media-container">
+                        <video class="exercise-media" src="https://musclewiki.com/api-next/videos/male-Machine-machine-hip-adduction-front.mp4" autoplay loop muted playsinline></video>
+                    </div>
+                </div>
+                <div class="exercise-item" onclick="handleCardClick(this)">
+                    <label class="check-container" onclick="event.stopPropagation()">
+                        <input type="checkbox" onclick="handleCheckboxClick(event, this)">
+                        <span class="checkmark"></span>
+                    </label>
+                    <h4>3x abdominal maquina</h4>
+                    <div class="exercise-details">12 a 15 rep | Foco rigidez</div>
+                    <div class="media-container">
+                        <img class="exercise-media" src="https://gymvisual.com/img/p/6/3/5/9/6359.gif" alt="abdominal maquina">
+                    </div>
+                </div>
+            </div>
+            <div class="cardio-info">🔥 25 min de Cardio Pós-Treino (Para preservar massa e secar)</div>
+        </div>
     </div>
 
 </div>
@@ -496,7 +565,6 @@
         document.body.setAttribute('data-theme', themeName);
         localStorage.setItem('preferred_theme', themeName);
         
-        // Atualiza estilo dos botões do seletor
         const buttons = document.querySelectorAll('.theme-btn');
         buttons.forEach(btn => {
             btn.classList.remove('active');
@@ -506,7 +574,17 @@
         });
     }
 
-    // Carrega o tema salvo anteriormente se houver
+    function openTab(evt, dayName) {
+        const contents = document.querySelectorAll('.tab-content');
+        contents.forEach(content => content.classList.remove('active'));
+
+        const buttons = document.querySelectorAll('.tab-btn');
+        buttons.forEach(btn => btn.classList.remove('active'));
+
+        document.getElementById(dayName).classList.add('active');
+        evt.currentTarget.classList.add('active');
+    }
+
     window.addEventListener('DOMContentLoaded', () => {
         const savedTheme = localStorage.getItem('preferred_theme');
         if (savedTheme) {
